@@ -1,0 +1,249 @@
+/* Importación de colores personalizados */
+@import url('./colors.css');
+
+/* Importación de Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@1,675&family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Playwrite+MX:wght@100..400&display=swap');
+
+/* Establecer fuentes y colores base */
+html, body {
+    background-color: var(--black-9);
+    height: 100%; /* Asegura que html y body ocupen el 100% del viewport height */
+    margin: 0;
+    font-family: "Nunito Sans", sans-serif;
+    color: var(--font-2);
+    overflow-x: hidden;
+}
+
+/* Establecer el contenedor principal para ocupar todo el espacio disponible */
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    padding: 0;
+}
+
+/* Estilos de fuente para encabezados */
+h1, h2, h3, h4, h5, h6 {
+    font-weight: 700;
+    font-size: 36px;
+    margin: 0; /* Elimina el margen por defecto */
+    color: var(--font-2);
+}
+
+/* Estilo de párrafos */
+p {
+    font-size: 16px;
+    margin: 0; /* Elimina el margen por defecto */
+    color: var(--font-1);
+}
+
+strong {
+    color: var(--font-3); /* Cambia el color del texto de strong a azul */
+}
+
+/* Estilo de enlaces */
+a {
+    text-decoration: none;
+    transition: color 0.3s;
+    color: var(--font-1);
+}
+
+a:hover {
+    color: var(--font-3);
+}
+
+/* Estilos de la barra lateral */
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: 43%;
+    padding: 0;
+    background-color: var(--black-9);
+    z-index: 100;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Alineación vertical al centro */
+    align-items: center; /* Alineación horizontal al centro */
+}
+
+/* Ajuste para el botón del navbar-toggler */
+.navbar-toggler {
+    margin-bottom: 10px; /* Espacio entre el botón y el contenido del navbar */
+}
+
+.sidebar .navbar {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    left: 0;
+    top: 0;
+    width: 43%;
+    z-index: 100;
+}
+
+.sidebar .navbar-brand {
+    text-align: center;
+}
+
+.sidebar .navbar-collapse {
+    width: 100%;
+    text-align: center; /* Alineación al centro para los elementos dentro del navbar-collapse */
+}
+
+.sidebar .navbar-nav {
+    width: 100%;
+    padding-left: 0; /* Elimina cualquier padding a la izquierda */
+    margin-bottom: 10px; /* Espacio entre el navbar-brand y el navbar-nav */
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Alineación horizontal al centro */
+}
+
+.sidebar .navbar-nav .nav-item {
+    width: 100%;
+    padding-left: 0;
+    margin-bottom: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Estilos para el texto del enlace */
+.sidebar .navbar-nav .nav-link {
+    display: block;
+    padding: 8px 0;
+    text-align: center; /* Alineación al centro para los enlaces del navbar */
+    color: var(--font-1); /* Color del texto del menú de navegación */
+    position: relative; /* Ajuste para posición relativa */
+    transition: color 0.3s, transform 0.3s ease-out; /* Transición para color y transformación */
+    white-space: nowrap; /* Evita que el texto se salga del navbar */
+}
+
+.sidebar .navbar-nav .nav-link:hover {
+    color: var(--font-3); /* Color al pasar el mouse */
+    transform: translateX(11px); /* Desplazamiento hacia la derecha al hacer hover */
+}
+
+/* Línea para resaltar el texto */
+.sidebar .navbar-nav .nav-link::before {
+    content: ""; /* Contenido vacío para el pseudo-elemento */
+    position: absolute; /* Posición absoluta para alinear el pseudo-elemento */
+    left: -80px; /* Alineación a la izquierda */
+    bottom: 0; /* Alineación al fondo del enlace */
+    width: 100%; /* Ancho completo */
+    height: 2px; /* Altura de la línea */
+    background-color: var(--font-1); /* Color de la línea */
+    transform: scaleX(0); /* Inicialmente invisible */
+    transform-origin: left; /* Origen de transformación */
+    transition: transform 0.3s ease-out; /* Transición para la transformación */
+}
+
+.sidebar .navbar-nav .nav-link:hover::before {
+    transform: scaleX(1); /* Hace visible la línea al hacer hover */
+}
+
+/* Estilo para el texto del enlace dentro de .navbar-social-links */
+.navbar-social-links .nav-link {
+    color: var(--font-2); /* Color de los enlaces de redes sociales */
+    transition: color 0.3s;
+    display: inline-block; /* Cambio necesario para gestionar el tamaño sin desplazar */
+    position: relative; /* Añadido para gestionar el hover */
+}
+
+.navbar-social-links .nav-link i {
+    font-size: 24px; /* Tamaño inicial de los íconos */
+    color: var(--color-3); /* Color inicial de los íconos */
+    transition: transform 0.3s, color 0.3s; /* Transición para transform y color */
+    display: block; /* Asegura que el ícono tenga su propio espacio */
+    margin: 0 15px; /* Añade un margen entre los íconos */
+}
+
+.navbar-social-links .nav-link:hover i {
+    transform: scale(1.5); /* Aumenta en un 50% al hacer hover */
+    color: var(--font-3); /* Cambia el color al hacer hover */
+}
+
+/* Estilo específico para los enlaces de redes sociales sin línea */
+.navbar-social-links .nav-link.no-line::before {
+    display: none; /* Oculta la línea */
+}
+
+/* Estilo para el contenido principal */
+.main-content {
+    flex: 1;
+    padding: 20px;
+    background-color: var(--black-9);
+    min-height: 100vh; /* Asegura que main-content ocupe al menos el 100% del viewport height */
+    margin-left: 42%;
+    box-sizing: border-box; /* Asegura que el padding se incluya en el cálculo del ancho */
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; /* Alinea el contenido al inicio horizontalmente */
+    justify-content: flex-start; /* Alinea el contenido al inicio verticalmente */
+}
+
+/* Ajuste del padding y margin de los contenedores */
+#sobremi, #proyectos, #experiencia {
+    width: 90%; /* Ancho del contenedor */
+    max-width: 800px; /* Ancho máximo del contenedor */
+    margin: 30px; /* Espacio entre los contenedores */
+    padding: 20px;
+    background-color: var(--black-9); /* Fondo con opacidad */
+    border-radius: 8px; /* Bordes redondeados */
+    transition: box-shadow 0.3s; /* Transición para el efecto de sombra */
+    box-shadow: 0 0 10px var(--black-11); /* Sombra inicial */
+}
+
+#sobremi:hover, #proyectos:hover, #experiencia:hover {
+    box-shadow: 0 0 15px var(--font-3); /* Sombra al pasar el mouse */
+    background-color: var(--black-11);
+}
+
+/* Estilo para las secciones de contenido */
+.content-section {
+    margin-bottom: 20px; /* Espacio entre secciones */
+    text-align: justify; /* Justificar texto */
+    line-height: 1.6; /* Espaciado de línea */
+}
+
+.skill-icon {
+    width: 42px; /* Ajusta el tamaño total del recuadro incluyendo padding */
+    height: 42px; /* Ajusta el tamaño total del recuadro incluyendo padding */
+    display: flex; /* Usamos flex para centrar el icono */
+    align-items: center; /* Centra verticalmente */
+    justify-content: center; /* Centra horizontalmente */
+    margin: 5px; /* Añade margen uniforme para todos los iconos */
+    padding: 5px; /* Añade un poco de padding */
+    background-color: var(--black-9); /* Fondo */
+    border-radius: 5px; /* Bordes redondeados */
+    cursor: pointer;
+    box-shadow: 0 0 10px var(--black-11);
+    text-align: center; /* Asegura que el contenido esté centrado */
+}
+
+.skill-icon:hover {
+    box-shadow: 0 0 15px var(--font-3); /* Sombra al pasar el mouse */
+    transform: scale(1.2); /* Aumenta en un 50% al hacer hover */
+    color: var(--font-3); /* Cambia el color al hacer hover */
+}
+
+/* Asegura que las imágenes dentro de .skill-icon se comporten de la misma manera que los iconos */
+.skill-icon img {
+    max-width: 100%; /* Asegura que la imagen no exceda el contenedor */
+    max-height: 100%; /* Asegura que la imagen no exceda el contenedor */
+    object-fit: contain; /* Asegura que la imagen mantenga su proporción */
+    display: block; /* Asegura que la imagen se comporte como un bloque */
+}
+
+/* Estilo específico para los iconos de font (como el de GitHub) */
+.skill-icon i {
+    font-size: 24px; /* Ajusta el tamaño del icono */
+    line-height: 1; /* Asegura que el icono no tenga espacio extra alrededor */
+}
+
+
+

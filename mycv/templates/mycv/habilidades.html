@@ -1,0 +1,47 @@
+{% for proyecto in proyectos %}
+<div class="container py-4" id="habilidades">
+    <div class="row">
+        <div class="col-md-12">
+            <h4 class="mb-3">{{ proyecto.titulo }}</h4>
+            <p class="mb-4">{{ proyecto.descripcion_proyecto }}</p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            {% if proyecto.gifs.all %}
+            <a href="{% url 'detalle_proyecto' proyecto.id %}">
+                <img src="{{ proyecto.gifs.first.gif_file.url }}" alt="{{ proyecto.gifs.first.descripcion_gif }}" class="img-fluid mb-4">
+            </a>
+            {% else %}
+            <p class="text-muted mb-4">No hay GIF asociado a este proyecto.</p>
+            {% endif %}
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="d-flex align-items-center">
+                <ul class="list-inline mb-0 d-flex align-items-center">
+                    {% if proyecto.github_url %}
+                    <li class="list-inline-item">
+                        <div class="skill-icon">
+                            <a href="{{ proyecto.github_url }}" target="_blank">
+                                <i class="bi bi-github fs-4"></i>
+                            </a>
+                        </div>
+                    </li>
+                    {% endif %}
+                    {% for skill in proyecto.skills.all %}
+                    <li class="list-inline-item">
+                        {% if skill.icono %}
+                        <div class="skill-icon">
+                            <img src="{{ skill.icono.url }}" alt="{{ skill.nombre }}" title="{{ skill.nombre }}">
+                        </div>
+                        {% endif %}
+                    </li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+{% endfor %}

@@ -1,0 +1,40 @@
+{% extends 'mycv/base.html' %}
+{% block title %}Nuevo Proyecto{% endblock %}
+
+{% block content %}
+<div class="container">
+    <h2>Nuevo Proyecto</h2>
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div class="mb-3">
+            {{ proyecto_form.titulo.label_tag }}
+            {{ proyecto_form.titulo }}
+        </div>
+        <div class="mb-3">
+            {{ proyecto_form.descripcion_proyecto.label_tag }}
+            {{ proyecto_form.descripcion_proyecto }}
+        </div>
+        <div class="mb-3">
+            {{ proyecto_form.github_url.label_tag }}
+            {{ proyecto_form.github_url }}
+        </div>
+
+        <!-- Formulario para cargar GIFs -->
+        <h3>Agregar GIFs</h3>
+        {{ gif_formset.management_form }}
+        {% for form in gif_formset %}
+            <div class="mb-3">
+                {{ form.gif_file.label_tag }}
+                {{ form.gif_file }}
+            </div>
+            <div class="mb-3">
+                {{ form.descripcion_gif.label_tag }}
+                {{ form.descripcion_gif }}
+            </div>
+        {% endfor %}
+        
+        <button type="submit" class="btn btn-primary">Guardar Proyecto</button>
+    </form>
+    <a href="{% url 'administrar_proyectos' %}" class="btn btn-secondary mt-3">Volver Atrás</a>
+</div>
+{% endblock %}

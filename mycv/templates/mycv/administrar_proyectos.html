@@ -1,0 +1,33 @@
+{% extends 'mycv/base.html' %}
+{% block title %}Administrar Proyectos{% endblock %}
+
+{% block content %}
+<div class="container">
+    <h2 class="my-4">Administrar Proyectos</h2>
+    <div class="list-group">
+        {% for proyecto in proyectos %}
+        <div class="list-group-item">
+            <h5 class="mb-1"><strong>Título:</strong> {{ proyecto.titulo }}</h5>
+            <p class="mb-1"><strong>Descripción del proyecto:</strong> {{ proyecto.descripcion_proyecto }}</p>
+            {% if proyecto.gifs.all %}
+            <p class="mb-1"><strong>GIFs asociados:</strong></p>
+            <ul class="list-unstyled">
+                {% for gif in proyecto.gifs.all %}
+                <li>{{ gif.descripcion_gif }}</li>
+                {% endfor %}
+            </ul>
+            {% else %}
+            <p class="mb-1"><strong>No hay GIFs asociados a este proyecto.</strong></p>
+            {% endif %}
+            <div class="mt-3">
+                <a href="{% url 'editar_proyecto' proyecto.id %}" class="btn btn-primary btn-sm">Editar Proyecto</a>
+                <a href="{% url 'agregar_gif' proyecto.id %}" class="btn btn-secondary btn-sm">Agregar GIF</a>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+    <div class="mt-4">
+        <a href="{% url 'nuevo_proyecto' %}" class="btn btn-primary">Agregar Nuevo Proyecto</a>
+    </div>
+</div>
+{% endblock %}

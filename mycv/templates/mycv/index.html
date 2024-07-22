@@ -1,0 +1,15 @@
+{% extends 'mycv/base.html' %}
+
+{% block content %}
+<div id="sobremi" class="about">
+    {% include 'mycv/sobremi.html' %}
+</div>
+
+<div id="proyectos" class="proyectos">
+    {% include 'mycv/habilidades.html' %}
+</div>
+
+<div id="experiencia" class="experiencia">
+    {% include 'mycv/experiencia.html' %}
+</div>
+{% endblock %}

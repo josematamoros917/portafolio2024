@@ -1,0 +1,14 @@
+{% extends 'mycv/base.html' %}
+{% block title %}Agregar GIF{% endblock %}
+
+{% block content %}
+<div class="container">
+    <h2>Agregar GIF para: {{ proyecto.titulo }}</h2>
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="btn btn-primary">Agregar GIF</button>
+    </form>
+    <a href="{% url 'administrar_proyectos' %}" class="btn btn-secondary mt-3">Volver Atrás</a>
+</div>
+{% endblock %}

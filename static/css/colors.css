@@ -1,0 +1,40 @@
+/* static/css/colors.css */
+:root {
+    /* Fuentes */
+    --font-1: rgb(233, 196, 252);
+    --font-2: rgb(215, 196, 252);
+    --font-3: rgb(202, 166, 252);
+    
+    /* Tonos de negro */
+    --black-1: rgb(5, 5, 5);
+    --black-2: rgb(7, 7, 7);
+    --black-3: rgb(38, 38, 38);
+    --black-4: rgb(35, 35, 35);
+    --black-5: rgb(20, 20, 20);
+    --black-6: rgb(40, 40, 40);
+    --black-7: rgb(48, 48, 48);
+    --black-8: rgb(48, 48, 48);
+    --black-9: rgb(22, 22, 22);
+    --black-10: rgb(17, 17, 17);
+    --black-11: rgb(12, 12, 12);
+    --black-12: rgb(30, 30, 30);
+    --black-13: rgb(28, 28, 28);
+
+    /* Colores alternativos */
+
+    --color-1: rgb(55, 12, 135);
+    --color-2: rgb(91, 15, 158);
+    --color-3: rgb(73, 6, 124);
+    --color-4: rgb(50, 2, 127);
+    --color-5: rgb(58, 8, 145);
+    --color-6: rgb(68, 4, 137);
+    --color-7: rgba(36, 5, 114, 0.672);
+    --color-8: rgb(56, 5, 145);
+    --color-9: rgb(37, 2, 124);
+    --color-10: rgb(64, 5, 119);
+    --color-11: rgb(88, 5, 130);
+    --color-12: rgb(63, 2, 132);
+    --color-13: rgb(64, 14, 163);
+
+    
+}

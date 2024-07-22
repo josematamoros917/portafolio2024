@@ -1,0 +1,117 @@
+/* Importación de colores personalizados */
+@import url('./colors.css');
+
+/* Importación de Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@1,675&family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Playwrite+MX:wght@100..400&display=swap');
+
+/* Establecer fuentes y colores base */
+html, body {
+    
+    background-color: var(--black-9);
+    height: 100%; /* Asegura que html y body ocupen el 100% del viewport height */
+    margin: 0;
+    font-family: "Nunito Sans", sans-serif;
+    color: var(--font-2);
+    overflow-x: hidden;
+}
+.container {
+    background-color: var(--black-9);
+    padding: 3rem;
+    display: flex;
+    flex-direction: column;
+    border-radius: 8px; /* Bordes redondeados */
+    transition: box-shadow 0.3s; /* Transición para el efecto de sombra */
+    box-shadow: 0 0 10px var(--black-11); /* Sombra inicial */
+}
+.project-title {
+    margin: 1;
+    color: var(--font-1);
+    
+}
+.project-description {
+    margin-bottom: 2rem;
+    color: var(--font-2);
+}
+/* Estilos para la lista de habilidades */
+.skills-list {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.8rem;
+}
+
+/* Estilos para cada habilidad */
+.skill-item {
+    display: inline-block; /* Ajusta para que cada habilidad ocupe solo el espacio necesario */
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    background-color: var(--color-7); /* Fondo de la habilidad */
+    color: var(--font-2); /* Color del texto de la habilidad */
+    cursor: pointer; /* Cambia el cursor al pasar sobre el nombre */
+    transition: background-color 0.3s, color 0.3s; /* Transición suave de colores */
+
+    /* Espacio entre habilidades */
+    margin-bottom: 0.5rem;
+    margin-right: 0.8rem;
+}
+
+.skill-item:hover {
+    background-color: var(--color-8); /* Cambia el color de fondo al hacer hover */
+    color: var(--font-3); /* Cambia el color del texto al hacer hover */
+    transform: scale(1.03); /* Aumenta ligeramente el tamaño al hacer hover */
+}
+
+.gif-item {
+    margin-bottom: 2rem;
+    width: 100%;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+.gif-item img {
+    border-radius: 8px;
+    box-shadow: 0 0 5px var(--black-11);
+    width: 100%;
+    transition: transform 0.3s, box-shadow 0.3s;
+    margin-bottom: 1rem;
+}
+.gif-item:hover img {
+    box-shadow: 0 0 15px var(--font-3); /* Sombra al pasar el mouse */
+    background-color: var(--black-11);
+    transform: scale(1.02);
+    
+}
+.gif-item-description {
+    margin: 2rem;
+    font-style: italic;
+    color: var(--font-3);
+    text-align: left; /* Centramos la descripción */
+}
+/* Estilo para los botones fijos en la parte superior izquierda */
+.fixed-left {
+    position: fixed;
+    top: 48px; /* Ajusta la posición desde la parte superior */
+    left: 20px; /* Ajusta la posición desde la parte izquierda */
+    z-index: 1000; /* Asegura que esté por encima de otros elementos */
+}
+
+.fixed-left a {
+    display: block; /* Hace que los enlaces ocupen todo el ancho disponible */
+    margin-bottom: 10px; /* Espacio entre los enlaces */
+    text-decoration: none; /* Elimina el subrayado del texto */
+}
+
+.fixed-left .btn-link {
+    color: var(--font-3); /* Color del texto del botón */
+    transition: color 0.3s; /* Transición para el color */
+}
+
+.fixed-left .btn-link i {
+    font-size: 35px; /* Tamaño inicial del ícono */
+    transition: transform 0.3s; /* Transición para el aumento de tamaño */
+    display: inline-block; /* Ajuste para el tamaño uniforme */
+}
+
+.fixed-left .btn-link:hover i {
+    transform: scale(1.5); /* Aumenta en un 50% al hacer hover */
+    color: var(--color-8); /* Cambia el color al hacer hover */
+}
