@@ -40,6 +40,19 @@
       </ul>
     </div>
   </div>
+
+  <!-- Mostrar el iframe del informe de Power BI -->
+  {% if proyecto.id == 4 and proyecto.powerbi_url %}
+  <div class="row mb-4">
+    <div class="col-md-12">
+      <h2>Análisis de Descuentos y Precios con Power BI</h2>
+      <div class="iframe-container">
+        <iframe title="sodimac_scraping_herramientas" width="1024" height="612" src="https://app.powerbi.com/view?r=eyJrIjoiMTRjNTI2OTgtYmY0OS00ZDU0LWJhMzUtN2IzYmI3MDc3MGMwIiwidCI6IjM4YTFlMGExLWI2YjEtNDJlOS1iM2E5LTU5NzYyNjY3MGIxNyIsImMiOjR9" frameborder="0" allowFullScreen="true"></iframe>
+      </div>
+    </div>
+  </div>
+  {% endif %}
+  
   <div class="row">
     <div class="col-md-12">
       {% if proyecto.gifs.all %}
@@ -56,6 +69,9 @@
       {% endif %}
     </div>
   </div>
+
+  
+
 </div>
 
 {% endblock %}

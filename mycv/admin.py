@@ -19,9 +19,20 @@ class GIFAdmin(admin.ModelAdmin):
     search_fields = ('proyecto__titulo', 'descripcion_gif')
     list_filter = ('proyecto',)
 
-# Registrar el modelo Proyecto
 @admin.register(Proyecto)
 class ProyectoAdmin(admin.ModelAdmin):
-    list_display = ('titulo', 'descripcion_proyecto', 'github_url')
+    list_display = ('id','titulo', 'descripcion_proyecto', 'github_url', 'powerbi_url')  # Añadir powerbi_url
     search_fields = ('titulo', 'descripcion_proyecto')
     filter_horizontal = ('skills',)  # Para mejorar la selección de habilidades en el administrador
+    list_filter = ('skills',)  # Filtro por habilidades
+    fieldsets = (
+        (None, {
+            'fields': ('titulo', 'descripcion_proyecto', 'github_url', 'powerbi_url')
+        }),
+        ('Archivos', {
+            'fields': ('dataset_original', 'dataset_limpio')
+        }),
+        ('Habilidades', {
+            'fields': ('skills',)
+        }),
+    )

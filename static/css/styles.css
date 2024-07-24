@@ -194,7 +194,7 @@ a:hover {
     padding: 20px;
     background-color: var(--black-9); /* Fondo con opacidad */
     border-radius: 8px; /* Bordes redondeados */
-    transition: box-shadow 0.3s; /* Transición para el efecto de sombra */
+    transition: box-shadow 0.3s, background-color 0.3s; /* Transición para el efecto de sombra */
     box-shadow: 0 0 10px var(--black-11); /* Sombra inicial */
 }
 
@@ -208,6 +208,21 @@ a:hover {
     margin-bottom: 20px; /* Espacio entre secciones */
     text-align: justify; /* Justificar texto */
     line-height: 1.6; /* Espaciado de línea */
+    background-color: rgba(0, 0, 0, 0.85);
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.content-section h2 {
+    font-size: 28px;
+    margin-bottom: 10px;
+    color: var(--font-3);
+}
+
+.content-section p {
+    font-size: 16px;
+    color: var(--font-1);
 }
 
 .skill-icon {

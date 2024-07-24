@@ -1,5 +1,5 @@
 from django import forms
-from .models import Proyecto, GIF
+from .models import Proyecto, GIF, ContactMessage
 from django.forms import modelformset_factory
 
 class ProyectoForm(forms.ModelForm):
@@ -22,3 +22,8 @@ class GIFForm(forms.ModelForm):
         }
 
 GIFFormSet = modelformset_factory(GIF, form=GIFForm, extra=3)
+
+class ContactForm(forms.ModelForm):
+    class Meta:
+        model = ContactMessage
+        fields = ['name', 'email', 'message']

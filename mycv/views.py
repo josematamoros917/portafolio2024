@@ -1,6 +1,8 @@
 from .models import Proyecto, GIF
+from django.core.mail import send_mail
+from django.contrib import messages
 from django.shortcuts import render, redirect, get_object_or_404
-from .forms import ProyectoForm, GIFForm, GIFFormSet
+from .forms import ProyectoForm, GIFForm, GIFFormSet,ContactForm
 # Create your views here.def index(request):
 
 def index(request):
@@ -70,4 +72,21 @@ def agregar_gif(request, proyecto_id):
     else:
         form = GIFForm()
     return render(request, 'mycv/agregar_gif.html', {'form': form, 'proyecto': proyecto})
+
+def contact_view(request):
+    if request.method == 'POST':
+        form = ContactForm(request.POST)
+        if form.is_valid():
+            contact_message = form.save()
+            send_mail(
+                f'Nuevo mensaje de {contact_message.name}',
+                contact_message.message,
+                contact_message.email,
+                ['tu_correo@dominio.com'],
+            )
+            messages.success(request, 'Tu mensaje ha sido enviado con éxito.')
+            return redirect('contact')
+    else:
+        form = ContactForm()
+    return render(request, 'contact.html', {'form': form})
 

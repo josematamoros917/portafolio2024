@@ -11,6 +11,7 @@ urlpatterns = [
     path('nuevo_proyecto/', views.nuevo_proyecto, name='nuevo_proyecto'),
     path('editar_proyecto/<int:proyecto_id>/', views.editar_proyecto, name='editar_proyecto'),
     path('agregar_gif/<int:proyecto_id>/', views.agregar_gif, name='agregar_gif'),
+    path('contact/', views.contact_view, name='contact'),
 ]
 
 if settings.DEBUG:

@@ -14,6 +14,7 @@ class Proyecto(models.Model):
     dataset_original = models.FileField(upload_to='datasets/originals/', blank=True, null=True)
     dataset_limpio = models.FileField(upload_to='datasets/cleaned/', blank=True, null=True)
     skills = models.ManyToManyField(Skill, related_name='proyectos', blank=True)
+    powerbi_url = models.URLField(blank=True, null=True)
     
     def __str__(self):
         return self.titulo
@@ -25,3 +26,12 @@ class GIF(models.Model):
 
     def __str__(self):
         return f"GIF for {self.proyecto.titulo} - {self.descripcion_gif}"
+    
+class ContactMessage(models.Model):
+    name = models.CharField(max_length=100)
+    email = models.EmailField()
+    message = models.TextField()
+    timestamp = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return f'Message from {self.name} at {self.timestamp}'
