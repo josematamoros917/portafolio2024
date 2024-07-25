@@ -1,4 +1,7 @@
 from django import forms
+from django.core.exceptions import ValidationError
+from email.utils import parseaddr
+import re
 from .models import Proyecto, GIF, ContactMessage
 from django.forms import modelformset_factory
 
@@ -27,3 +30,12 @@ class ContactForm(forms.ModelForm):
     class Meta:
         model = ContactMessage
         fields = ['name', 'email', 'message']
+    def clean_email(self):
+        email = self.cleaned_data.get('email')
+        if not self.is_valid_email(email):
+            raise ValidationError("El email no es válido.")
+        return email
+
+    def is_valid_email(self, email):
+        # Validar si el email tiene el formato correcto
+        return parseaddr(email)[1] == email and re.match(r"[^@]+@[^@]+\.[^@]+", email)
