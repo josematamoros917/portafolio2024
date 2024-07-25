@@ -3,6 +3,7 @@ from django.core.mail import send_mail
 from django.contrib import messages
 from django.shortcuts import render, redirect, get_object_or_404
 from .forms import ProyectoForm, GIFForm, GIFFormSet,ContactForm
+from email.utils import parseaddr
 # Create your views here.def index(request):
 
 def index(request):
@@ -72,6 +73,8 @@ def agregar_gif(request, proyecto_id):
     else:
         form = GIFForm()
     return render(request, 'mycv/agregar_gif.html', {'form': form, 'proyecto': proyecto})
+def is_valid_email(email):
+    return parseaddr(email)[1] == email
 
 def contact_view(request):
     if request.method == 'POST':
@@ -80,13 +83,18 @@ def contact_view(request):
             contact_message = form.save()
             send_mail(
                 f'Nuevo mensaje de {contact_message.name}',
-                contact_message.message,
-                contact_message.email,
-                ['josematamoros917@.gmail.com'],
+                f'Nombre: {contact_message.name}\n'
+                f'Email: {contact_message.email}\n'
+                f'Mensaje:\n{contact_message.message}\n'
+                f'Fecha y hora: {contact_message.timestamp}',
+                'no-reply@gmail.com',  # Puedes cambiar esto a una dirección de correo no-reply o tu dirección
+                ['josematamoros917@gmail.com'],
+                fail_silently=False,
             )
             messages.success(request, 'Tu mensaje ha sido enviado con éxito.')
             return redirect('contact')
     else:
         form = ContactForm()
+    
     return render(request, 'mycv/contact.html', {'form': form})
 
