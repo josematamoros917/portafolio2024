@@ -29,7 +29,7 @@ def nuevo_proyecto(request):
     if request.method == 'POST':
         proyecto_form = ProyectoForm(request.POST)
         gif_formset = GIFFormSet(request.POST, request.FILES, queryset=GIF.objects.none())
-        
+
         if proyecto_form.is_valid() and gif_formset.is_valid():
             proyecto = proyecto_form.save()
             for form in gif_formset:
@@ -41,7 +41,7 @@ def nuevo_proyecto(request):
     else:
         proyecto_form = ProyectoForm()
         gif_formset = GIFFormSet(queryset=GIF.objects.none())
-    
+
     context = {
         'proyecto_form': proyecto_form,
         'gif_formset': gif_formset,
@@ -73,6 +73,9 @@ def agregar_gif(request, proyecto_id):
         form = GIFForm()
     return render(request, 'mycv/agregar_gif.html', {'form': form, 'proyecto': proyecto})
 
+def is_valid_email(email):
+    return parseaddr(email)[1] == email
+
 def contact_view(request):
     if request.method == 'POST':
         form = ContactForm(request.POST)
@@ -80,13 +83,18 @@ def contact_view(request):
             contact_message = form.save()
             send_mail(
                 f'Nuevo mensaje de {contact_message.name}',
-                contact_message.message,
-                contact_message.email,
-                ['josematamoros917@.gmail.com'],
+                f'Nombre: {contact_message.name}\n'
+                f'Email: {contact_message.email}\n'
+                f'Mensaje:\n{contact_message.message}\n'
+                f'Fecha y hora: {contact_message.timestamp}',
+                'no-reply@gmail.com',  # Puedes cambiar esto a una dirección de correo no-reply o tu dirección
+                ['josematamoros917@gmail.com'],
+                fail_silently=False,
             )
             messages.success(request, 'Tu mensaje ha sido enviado con éxito.')
             return redirect('contact')
     else:
         form = ContactForm()
+
     return render(request, 'mycv/contact.html', {'form': form})
 
