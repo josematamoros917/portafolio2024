@@ -82,7 +82,7 @@ def contact_view(request):
                 f'Nuevo mensaje de {contact_message.name}',
                 contact_message.message,
                 contact_message.email,
-                ['tu_correo@dominio.com'],
+                ['josematamoros917@.gmail.com'],
             )
             messages.success(request, 'Tu mensaje ha sido enviado con éxito.')
             return redirect('contact')
