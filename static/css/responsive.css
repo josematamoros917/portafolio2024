@@ -1,0 +1,59 @@
+@media (min-width: 992px) {
+    .sidebar {
+        display: block; /* Muestra el sidebar en pantallas grandes */
+        position: fixed;
+        transform: translateX(0); /* Muestra el sidebar */
+    }
+
+    .main-content {
+        margin-left: 250px; /* Deja espacio para el sidebar */
+    }
+
+    .btn-primary {
+        display: none; /* Oculta el botón en pantallas grandes */
+    }
+}
+
+/* Estilos para pantallas medianas y pequeñas (hasta 991px) */
+@media (max-width: 991px) {
+    .sidebar {
+        position: fixed;
+        top: 0;
+        left: 0;
+        height: 100vh;
+        width: 250px;
+        background-color: var(--black-9);
+        z-index: 1000;
+        overflow-y: auto;
+        transform: translateX(-100%); /* Oculta el sidebar por defecto */
+        transition: transform 0.3s ease-in-out;
+    }
+
+    .sidebar.show {
+        transform: translateX(0); /* Muestra el sidebar cuando se activa */
+    }
+
+    .main-content {
+        margin-left: 0; /* Elimina el margen izquierdo */
+        padding: 20px;
+    }
+
+    .btn-primary {
+        display: block; /* Muestra el botón en pantallas pequeñas */
+        position: fixed;
+        top: 10px;
+        right: 10px;
+        z-index: 1050; /* Asegura que el botón esté encima del sidebar */
+        background-color: var(--color-1);
+        border: none;
+        color: var(--font-1);
+    }
+
+    .btn-primary:focus, .btn-primary:hover {
+        background-color: var(--color-2);
+    }
+
+    .btn-primary .bi {
+        color: var(--font-1);
+    }
+}

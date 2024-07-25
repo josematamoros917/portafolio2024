@@ -3,6 +3,7 @@ from django.core.mail import send_mail
 from django.contrib import messages
 from django.shortcuts import render, redirect, get_object_or_404
 from .forms import ProyectoForm, GIFForm, GIFFormSet,ContactForm
+from email.utils import parseaddr
 # Create your views here.def index(request):
 
 def index(request):
