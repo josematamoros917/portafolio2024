@@ -1,59 +1,164 @@
-@media (min-width: 992px) {
-    .sidebar {
-        display: block; /* Muestra el sidebar en pantallas grandes */
-        position: fixed;
-        transform: translateX(0); /* Muestra el sidebar */
+/* Estilos para el botón toggler y redes sociales en pantallas pequeñas */
+@media (max-width: 618px) and (max-height: 1100px) {
+    .btn-container {
+        position: fixed; /* Asegura que el contenedor esté en una posición fija */
+        top: 10px; /* Ajusta la posición desde la parte superior */
+        right: 10px; /* Ajusta la posición desde el borde derecho */
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: var(--black-11); /* Fondo negro con 60% de opacidad */
+        border-radius: 50%; /* Hace que el fondo sea redondo */
+        box-shadow: 0 4px 8px var(--black-1); /* Sombra alrededor del fondo */
+        width: 60px; /* Tamaño del contenedor */
+        height: 60px; /* Tamaño del contenedor */
+        z-index: 10; /* Asegura que el botón esté sobre otros elementos */
     }
 
-    .main-content {
-        margin-left: 250px; /* Deja espacio para el sidebar */
-    }
-
-    .btn-primary {
-        display: none; /* Oculta el botón en pantallas grandes */
-    }
-}
-
-/* Estilos para pantallas medianas y pequeñas (hasta 991px) */
-@media (max-width: 991px) {
-    .sidebar {
-        position: fixed;
-        top: 0;
-        left: 0;
-        height: 100vh;
-        width: 250px;
-        background-color: var(--black-9);
-        z-index: 1000;
-        overflow-y: auto;
-        transform: translateX(-100%); /* Oculta el sidebar por defecto */
-        transition: transform 0.3s ease-in-out;
-    }
-
-    .sidebar.show {
-        transform: translateX(0); /* Muestra el sidebar cuando se activa */
-    }
-
-    .main-content {
-        margin-left: 0; /* Elimina el margen izquierdo */
-        padding: 20px;
-    }
-
-    .btn-primary {
-        display: block; /* Muestra el botón en pantallas pequeñas */
-        position: fixed;
-        top: 10px;
-        right: 10px;
-        z-index: 1050; /* Asegura que el botón esté encima del sidebar */
-        background-color: var(--color-1);
+    .btn-toggler {
+        background-color: transparent;
         border: none;
-        color: var(--font-1);
+        padding: 0;
+        border-radius: 50%;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
     }
 
-    .btn-primary:focus, .btn-primary:hover {
-        background-color: var(--color-2);
+    .btn-img {
+        width: 50px; /* Ajusta el tamaño según tu preferencia */
+        height: 50px; /* Ajusta el tamaño según tu preferencia */
+        object-fit: cover; /* Mantiene la proporción de la imagen */
+        border-radius: 50%; /* Hace que la imagen sea redonda */
     }
 
-    .btn-primary .bi {
-        color: var(--font-1);
+    .btn-container:hover .btn-img {
+        opacity: 0.8; /* Añade un efecto de opacidad al pasar el ratón */
     }
+
+    .btn-toggler:focus {
+        outline: none; /* Quita el borde de enfoque */
+    }
+
+    #rrss-nav {
+        display: flex;
+        position: fixed !important;
+        top: 10px; /* Ajusta la posición desde la parte superior */
+        left: 10px; /* Ajusta la posición desde el borde izquierdo */
+        flex-direction: row; /* Alinea los íconos horizontalmente */
+        gap: 10px; /* Espaciado entre íconos */
+        align-items: center; /* Alinea verticalmente los íconos */
+        z-index: 10; /* Asegura que los íconos estén sobre otros elementos */
+    }
+
+    #rrss-ul {
+        display: flex;
+        flex-direction: row; /* Alinea los íconos horizontalmente */
+        gap: 0.8rem; /* Espaciado entre íconos */
+        padding: 0;
+        margin: 0;
+        margin-top: 0.8rem;
+        margin-left: 18rem;
+    }
+
+    #rrss-ul .nav-item {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    #rrss-ul .nav-link {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 40px; /* Ajusta el tamaño del ícono */
+        height: 40px; /* Ajusta el tamaño del ícono */
+        background: rgba(0, 0, 0, 0.6); /* Fondo negro con transparencia */
+        color: white; /* Color del ícono */
+        border-radius: 50%; /* Hace que el fondo del ícono sea redondo */
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Sombra alrededor del ícono */
+        text-decoration: none; /* Quita el subrayado del enlace */
+        transition: background 0.3s, color 0.3s;
+    }
+
+    #rrss-ul .nav-link:hover {
+        background: rgba(0, 0, 0, 0.8); /* Fondo más oscuro al pasar el ratón */
+    }
+
+    #rrss-ul .nav-link i {
+        font-size: 20px; /* Tamaño del ícono */
+    }
+
+    /* Ajustes adicionales para asegurarse de que los íconos y el botón se alineen bien */
+    .container-fluid {
+        display: flex;
+        justify-content: flex-end; /* Ajusta el contenido del contenedor principal */
+        padding: 0;
+    }
+
+    .sidebar {
+        display: none;
+    }
+
+    .main-content {
+        margin-top: 3rem;
+        width: 100%;
+        padding: 10px;
+    }
+
+    .content-section {
+        width: 100%;
+        max-width: none;
+        margin: 10px 0;
+        padding: 10px;
+        box-shadow: 0 0 8px var(--sidebar-bg);
+    }
+
+    .content-section h2 {
+        font-size: 24px;
+        margin-bottom: 8px;
+    }
+
+    .content-section p {
+        font-size: 14px;
+    }
+
+    .offcanvas-header .btn-close {
+        position: absolute;
+        top: 1.5rem;
+        right: 1.5rem;
+        color: var(--font-3); /* Asegúrate de que el color sea claro */
+        font-size: 1.5rem;
+    }
+    .offcanvas {
+        background-color: var(--black-11);
+        width: 100%;
+    }
+
+    /* Estilos específicos para los enlaces del menú de navegación */
+    .navbar-nav .nav-item .nav-link {
+        color: var(--font-1); /* Cambia el color del texto a la variable deseada */
+        text-decoration: none; /* Elimina el subrayado del enlace */
+        transition: color 0.3s; /* Suaviza el cambio de color */
+    }
+
+    /* Cambia el color del enlace al pasar el ratón */
+    .navbar-nav .nav-item .nav-link:hover,
+    .navbar-nav .nav-item .nav-link:focus {
+        color: var(--color-1); /* Cambia el color al pasar el ratón o al enfocarse */
+        text-decoration: none; /* Asegura que el enlace no esté subrayado */
+    }
+
+    /* Estilo para enlaces visitados */
+    .navbar-nav .nav-item .nav-link:visited {
+        color: var(--font-1); /* Asegura que los enlaces visitados también usen el color especificado */
+    }
+
+    /* Estilo para enlaces activos */
+    .navbar-nav .nav-item .nav-link.active {
+        color: var(--color-1); /* Cambia el color para el enlace activo si se aplica la clase 'active' */
+    }
+    
 }
