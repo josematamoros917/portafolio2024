@@ -7,6 +7,15 @@ $(document).ready(function () {
 
     // Manejar clics en enlaces dentro del offcanvas
     $('#offcanvasNavbar .nav-link').on('click', function () {
-        bsOffcanvas.hide(); // Cierra el offcanvas
+        var target = $(this).attr('href'); // Obtén el objetivo del enlace
+        // Navega a la sección objetivo
+        $('html, body').animate({
+            scrollTop: $(target).offset().top
+        }, 500, function () {
+            // Cierra el offcanvas después de un breve retraso
+            setTimeout(function () {
+                bsOffcanvas.hide();
+            }, 300); // Ajusta el retraso según sea necesario
+        });
     });
 });
