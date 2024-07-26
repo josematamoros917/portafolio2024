@@ -30,7 +30,7 @@ def nuevo_proyecto(request):
     if request.method == 'POST':
         proyecto_form = ProyectoForm(request.POST)
         gif_formset = GIFFormSet(request.POST, request.FILES, queryset=GIF.objects.none())
-        
+
         if proyecto_form.is_valid() and gif_formset.is_valid():
             proyecto = proyecto_form.save()
             for form in gif_formset:
@@ -42,7 +42,7 @@ def nuevo_proyecto(request):
     else:
         proyecto_form = ProyectoForm()
         gif_formset = GIFFormSet(queryset=GIF.objects.none())
-    
+
     context = {
         'proyecto_form': proyecto_form,
         'gif_formset': gif_formset,
@@ -73,6 +73,7 @@ def agregar_gif(request, proyecto_id):
     else:
         form = GIFForm()
     return render(request, 'mycv/agregar_gif.html', {'form': form, 'proyecto': proyecto})
+
 def is_valid_email(email):
     return parseaddr(email)[1] == email
 
@@ -95,6 +96,6 @@ def contact_view(request):
             return redirect('contact')
     else:
         form = ContactForm()
-    
+
     return render(request, 'mycv/contact.html', {'form': form})
 
