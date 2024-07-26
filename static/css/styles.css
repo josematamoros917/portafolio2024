@@ -13,7 +13,7 @@ html, body {
     color: var(--font-2);
     overflow-x: hidden;
     scroll-padding-top: 70px;
-    scroll-behavior: smooth;
+    
 }
 
 body {
@@ -157,6 +157,8 @@ a:hover {
     border-radius: 8px;
     transition: box-shadow 0.3s, background-color 0.3s;
     box-shadow: 0 0 10px var(--black-11);
+    scroll-margin-top: 70px;
+    
 }
 
 #sobremi:hover, #proyectos:hover, #experiencia:hover {

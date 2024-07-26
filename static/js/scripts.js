@@ -1,21 +1,17 @@
 $(document).ready(function () {
-    // Selecciona el menú offcanvas
     var offcanvasElement = document.getElementById('offcanvasNavbar');
-    
-    // Crear una instancia de Offcanvas de Bootstrap
     var bsOffcanvas = new bootstrap.Offcanvas(offcanvasElement);
 
-    // Manejar clics en enlaces dentro del offcanvas
-    $('#offcanvasNavbar .nav-link').on('click', function () {
-        var target = $(this).attr('href'); // Obtén el objetivo del enlace
-        // Navega a la sección objetivo
+    $('#offcanvasNavbar .nav-link').on('click', function (event) {
+        event.preventDefault();
+        var target = $(this).attr('href');
+        
         $('html, body').animate({
-            scrollTop: $(target).offset().top
+            scrollTop: $(target).offset().top - 70 // Ajusta este valor según el tamaño de tu navbar
         }, 500, function () {
-            // Cierra el offcanvas después de un breve retraso
             setTimeout(function () {
                 bsOffcanvas.hide();
-            }, 300); // Ajusta el retraso según sea necesario
+            }, 300);
         });
     });
 });
