@@ -1,17 +1,16 @@
-$(document).ready(function () {
-    var offcanvasElement = document.getElementById('offcanvasNavbar');
-    var bsOffcanvas = new bootstrap.Offcanvas(offcanvasElement);
-
-    $('#offcanvasNavbar .nav-link').on('click', function (event) {
-        event.preventDefault();
-        var target = $(this).attr('href');
-        
-        $('html, body').animate({
-            scrollTop: $(target).offset().top - 100 // Ajusta este valor según el tamaño de tu navbar
-        }, 500, function () {
-            setTimeout(function () {
+document.addEventListener('DOMContentLoaded', function() {
+    // Obtener todos los enlaces dentro del menú offcanvas
+    const menuLinks = document.querySelectorAll('#offcanvasNavbar .nav-link');
+    
+    // Añadir un event listener a cada enlace
+    menuLinks.forEach(link => {
+        link.addEventListener('click', () => {
+            // Cerrar el menú offcanvas al hacer clic en un enlace
+            const offcanvas = document.getElementById('offcanvasNavbar');
+            const bsOffcanvas = bootstrap.Offcanvas.getInstance(offcanvas);
+            if (bsOffcanvas) {
                 bsOffcanvas.hide();
-            }, 300);
+            }
         });
     });
 });

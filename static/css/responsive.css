@@ -1,9 +1,150 @@
-/* Estilos para el botón toggler y redes sociales en pantallas pequeñas */
-@media (min-width: 390px) and (max-width: 620px)  {
+/* Estilos para pantallas pequeñas (hasta 389px) */
+@media only screen and (max-width: 389px) {
+    /* contenedor principal, en bloque para evitarel grid original*/
+    .container-fluid {
+        display: block;
+        margin: 0;
+    }
+    /* ocultamos el sidebar que es el menu lateral de pantallas grandes */
+    .sidebar {
+        display:none
+    }
+    /* ajustamos el main-content para que tenga 100% de ancoh y la distancia del top quede bien con su margin en 4.5rem */
+    .main-content {
+        margin-top: 3.8rem;
+        width: 100%;
+        padding: 0.7rem;
+    }
+    /* todo el ancho #sobremi, #habilidades, #experiencia */
+    #sobremi, #habilidades, #experiencia {
+        width: 100%; /* Asegura que el contenido ocupe todo el ancho disponible */
+        margin: 0.7rem auto; /* Centra el contenido horizontalmente */
+        padding-top: 20px;
+        padding-bottom: 40px;
+        background-color: var(--black-9);
+        border-radius: 8px;
+        transition: box-shadow 0.3s, background-color 0.3s;
+        box-shadow: 0 0 10px var(--black-11);
+        scroll-margin-top: 70px;
+    }
+
+    .btn-container {
+        position: fixed;
+        top: 10px;
+        right: 10px;
+        z-index: 20;
+    }
+    .btn-toggler {
+        background-color: transparent;
+        border: none;
+        padding: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    /* botn foto yo */
+    .btn-img {
+        width: 50px;
+        height: 50px;
+        object-fit: cover;
+        border-radius: 50%;
+    }
+
+    .btn-container:hover .btn-img {
+        opacity: 0.8;
+    }
+    #rrss-nav {
+        display: flex;
+        position: fixed !important;
+        top: 10px; 
+        left: 10px;
+        flex-direction: row; /* Alinea los íconos horizontalmente */
+        gap: 10px; /* Espaciado entre íconos */
+        align-items: center; /* Alinea verticalmente los íconos */
+        z-index: 10; /* Asegura que los íconos estén sobre otros elementos */
+    }
+
+    #rrss-ul {
+        display: flex;
+        flex-direction: row; /* Alinea los íconos horizontalmente */
+        gap: 0.8rem; /* Espaciado entre íconos */
+        padding: 0;
+        margin: 0;
+        margin-top: 0.45rem;
+        margin-left: 3rem;
+    }
+
+    #rrss-ul .nav-item {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    #rrss-ul .nav-link {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 40px; /* Ajusta el tamaño del ícono */
+        height: 40px; /* Ajusta el tamaño del ícono */
+        background: var(--black-11); /* Fondo negro con transparencia */
+        color: white; /* Color del ícono */
+        border-radius: 50%; /* Hace que el fondo del ícono sea redondo */
+        box-shadow: 0 4px 8px var(--black-11); /* Sombra alrededor del ícono */
+        text-decoration: none; /* Quita el subrayado del enlace */
+        transition: background 0.3s, color 0.3s;
+    }
+    #rrss-ul .nav-link:hover {
+        background: var(--black-11); /* Fondo más oscuro al pasar el ratón */
+    }
+
+    #rrss-ul .nav-link i {
+        font-size: 20px; /* Tamaño del ícono */
+    }
+
+    .offcanvas-header .btn-close {
+        position: absolute;
+        top: 1.5rem;
+        right: 1.5rem;
+        color: var(--font-3); /* Asegúrate de que el color sea claro */
+        font-size: 1.5rem;
+    }
+    .offcanvas {
+        background-color: var(--black-11);
+        width: 100%;
+    }
+
+    /* Estilos para enlaces del menú de navegación */
+    .navbar-nav .nav-link {
+        color: var(--font-1);
+        text-decoration: none;
+        transition: color 0.3s;
+    }
+
+    .navbar-nav .nav-link:hover {
+        color: var(--color-1);
+        text-decoration: none;
+    }
+
+    .navbar-nav .nav-link:visited {
+        color: var(--font-1);
+    }
+
+    .navbar-nav .nav-link.active {
+        color: var(--color-1);
+    }
+    .skill-icon {
+        width: 36px; /* Ajusta el tamaño del ícono según sea necesario */
+        height: 36px;
+    }
+    
+}
+
+/* Estilos para el botón toggler y redes sociales en pantallas medianas */
+@media only screen and (min-width: 390px) and (max-width: 620px)  {
     .btn-container {
         position: fixed; /* Asegura que el contenedor esté en una posición fija */
-        top: 10px; /* Ajusta la posición desde la parte superior */
-        right: 10px; /* Ajusta la posición desde el borde derecho */
+        top: 1rem; /* Ajusta la posición desde la parte superior */
+        right: 1rem; /* Ajusta la posición desde el borde derecho */
         display: flex;
         align-items: center;
         justify-content: center;
@@ -59,7 +200,7 @@
         gap: 0.8rem; /* Espaciado entre íconos */
         padding: 0;
         margin: 0;
-        margin-top: 0.8rem;
+        margin-top: 1rem;
         margin-left: 3rem;
     }
 
@@ -75,16 +216,16 @@
         justify-content: center;
         width: 40px; /* Ajusta el tamaño del ícono */
         height: 40px; /* Ajusta el tamaño del ícono */
-        background: rgba(0, 0, 0, 0.6); /* Fondo negro con transparencia */
+        background: var(--black-11); /* Fondo negro con transparencia */
         color: white; /* Color del ícono */
         border-radius: 50%; /* Hace que el fondo del ícono sea redondo */
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Sombra alrededor del ícono */
+        box-shadow: 0 4px 8px var(--black-11); /* Sombra alrededor del ícono */
         text-decoration: none; /* Quita el subrayado del enlace */
         transition: background 0.3s, color 0.3s;
     }
 
     #rrss-ul .nav-link:hover {
-        background: rgba(0, 0, 0, 0.8); /* Fondo más oscuro al pasar el ratón */
+        background: var(--black-11); /* Fondo más oscuro al pasar el ratón */
     }
 
     #rrss-ul .nav-link i {
@@ -103,9 +244,22 @@
     }
 
     .main-content {
-        margin-top: 3rem;
+        margin-top: 4.8rem;
         width: 100%;
-        padding: 10px;
+        padding: 0.5rem;
+    }
+
+    /* todo el ancho #sobremi, #habilidades, #experiencia */
+    #sobremi, #habilidades, #experiencia {
+        width: 100%; /* Asegura que el contenido ocupe todo el ancho disponible */
+        margin: 0.7rem auto; /* Centra el contenido horizontalmente */
+        padding-top: 20px;
+        padding-bottom: 40px;
+        background-color: var(--black-9);
+        border-radius: 8px;
+        transition: box-shadow 0.3s, background-color 0.3s;
+        box-shadow: 0 0 10px var(--black-11);
+        scroll-margin-top: 70px;
     }
 
     .content-section {
@@ -160,5 +314,10 @@
     .navbar-nav .nav-item .nav-link.active {
         color: var(--color-1); /* Cambia el color para el enlace activo si se aplica la clase 'active' */
     }
+    .skill-icon {
+        width: 40px; /* Ajusta el tamaño del ícono según sea necesario */
+        height: 40px;
+    }
     
 }
+

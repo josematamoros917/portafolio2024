@@ -12,7 +12,7 @@ html, body {
     font-family: "Nunito Sans", sans-serif;
     color: var(--font-2);
     overflow-x: hidden;
-    scroll-padding-top: 70px;
+    scroll-padding-top: 1rem;
     
 }
 
@@ -147,7 +147,7 @@ a:hover {
 }
 
 /* Estilo para secciones de contenido */
-#sobremi, #proyectos, #experiencia {
+#sobremi, #habilidades, #experiencia {
     width: 90%;
     max-width: 800px;
     margin: 30px auto;
@@ -161,7 +161,7 @@ a:hover {
     
 }
 
-#sobremi:hover, #proyectos:hover, #experiencia:hover {
+#sobremi:hover, #habilidades:hover, #experiencia:hover {
     box-shadow: 0 0 15px var(--font-3);
     background-color: var(--black-11);
 }
@@ -206,13 +206,6 @@ a:hover {
     text-align: center;
 }
 
-/* Efecto de aumento de tamaño para íconos de habilidad */
-.skill-icon:hover {
-    box-shadow: 0 0 15px var(--font-3);
-    transform: scale(1.2);
-    color: var(--font-3);
-}
-
 .skill-icon img {
     max-width: 100%;
     max-height: 100%;
@@ -223,6 +216,15 @@ a:hover {
 .skill-icon i {
     font-size: 24px;
     line-height: 1;
+}
+
+/* Estilo para los íconos en el contenedor */
+ul.list-inline {
+    display: flex;
+    flex-wrap: wrap; /* Permite que los íconos se acomoden en nuevas filas si es necesario */
+    gap: 10px; /* Espacio entre los íconos */
+    padding-left: 0;
+    list-style: none; /* Elimina los puntos de la lista */
 }
 
 

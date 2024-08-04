@@ -1,9 +1,11 @@
 {% for proyecto in proyectos %}
-<div class="container py-4" id="habilidades">
+<div class="container">
     <div class="row">
         <div class="col-md-12">
-            <h4 class="mb-3">{{ proyecto.titulo }}</h4>
-            <p class="mb-4">{{ proyecto.descripcion_proyecto }}</p>
+            <div class="content-section">
+                <h4 class="mb-3">{{ proyecto.titulo }}</h4>
+                <p class="mb-4">{{ proyecto.descripcion_proyecto }}</p>
+            </div>
         </div>
     </div>
     <div class="row">
